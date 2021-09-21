@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "310024576432",
+    "project_id": "niaga-busana-99c41",
+    "storage_bucket": "niaga-busana-99c41.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:310024576432:android:a4717fb51dc1857eaeca75",
+        "android_client_info": {
+          "package_name": "com.niagabusana"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "310024576432-190tdntetam4k89c2g34vgblc6fhrjvk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCs7SN8s21FzBW1dOPHm5Hbanm9r73O2pk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "310024576432-190tdntetam4k89c2g34vgblc6fhrjvk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
