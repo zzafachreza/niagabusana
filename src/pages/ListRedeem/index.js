@@ -34,7 +34,7 @@ export default function ListRedeem({navigation}) {
       // console.log(res);
 
       axios
-        .post('https://zavalabs.com/bmelektronik/api/redeem.php', {
+        .post('https://zavalabs.com/niagabusana/api/redeem.php', {
           id_member: res.id,
         })
         .then(res => {
@@ -51,7 +51,7 @@ export default function ListRedeem({navigation}) {
         // console.log(res);
 
         axios
-          .post('https://zavalabs.com/bmelektronik/api/redeem.php', {
+          .post('https://zavalabs.com/niagabusana/api/redeem.php', {
             id_member: res.id,
           })
           .then(res => {
@@ -164,7 +164,7 @@ export default function ListRedeem({navigation}) {
                     onPress={() => {
                       axios
                         .post(
-                          'https://zavalabs.com/bmelektronik/api/redeem_hapus.php',
+                          'https://zavalabs.com/niagabusana/api/redeem_hapus.php',
                           {
                             id_member: item.id_member,
                             id: item.id,
@@ -173,7 +173,7 @@ export default function ListRedeem({navigation}) {
                         .then(res => {
                           axios
                             .post(
-                              'https://zavalabs.com/bmelektronik/api/redeem.php',
+                              'https://zavalabs.com/niagabusana/api/redeem.php',
                               {
                                 id_member: item.id_member,
                               },

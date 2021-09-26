@@ -152,7 +152,7 @@ export default function Bayar({navigation, route}) {
     console.log('kirim ke server', data);
     setTimeout(() => {
       axios
-        .post('https://zavalabs.com/bmelektronik/api/kredit_bayar.php', data)
+        .post('https://zavalabs.com/niagabusana/api/kredit_bayar.php', data)
         .then(res => {
           console.log(res);
           setLoading(false);

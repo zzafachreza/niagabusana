@@ -18,12 +18,10 @@ export default function Kategori({navigation}) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get('https://zavalabs.com/bmelektronik/api/kategori.php')
-      .then(res => {
-        console.log('get kategori', res.data);
-        setData(res.data);
-      });
+    axios.get('https://zavalabs.com/niagabusana/api/kategori.php').then(res => {
+      console.log('get kategori', res.data);
+      setData(res.data);
+    });
   }, []);
 
   const _renderITem = ({item}) => {
@@ -31,36 +29,37 @@ export default function Kategori({navigation}) {
       <TouchableOpacity
         onPress={() => navigation.navigate('Search2', item)}
         style={{
-          flexDirection: 'row',
-          padding: 10,
-          justifyContent: 'center',
-          alignItems: 'center',
-          margin: 10,
-          borderWidth: 1,
+          position: 'relative',
+
+          marginHorizontal: 10,
+          overflow: 'hidden',
           borderRadius: 10,
-          height: 100,
+          height: 200,
+          marginVertical: 10,
         }}>
-        <Text
+        <Image
+          source={{uri: item.foto}}
           style={{
-            flex: 1,
-            fontFamily: fonts.secondary[600],
-            fontSize: windowWidth / 25,
-          }}>
-          {item.nama_kategori}
-        </Text>
+            width: '100%',
+            height: 200,
+          }}
+        />
         <View
           style={{
-            justifyContent: 'center',
-            alignItems: 'center',
+            position: 'absolute',
+            bottom: 0,
+            padding: 10,
+            backgroundColor: colors.primary,
+            width: '100%',
           }}>
-          <Image
-            resizeMode="contain"
-            source={{uri: item.foto}}
+          <Text
             style={{
-              width: 100,
-              height: 50,
-            }}
-          />
+              fontFamily: fonts.secondary[600],
+              fontSize: windowWidth / 22,
+              color: colors.white,
+            }}>
+            {item.nama_kategori}
+          </Text>
         </View>
       </TouchableOpacity>
     );
@@ -100,7 +99,7 @@ export default function Kategori({navigation}) {
       <View style={{padding: 10}}>
         <MyButton
           onPress={() => navigation.navigate('KategoriAll')}
-          warna={colors.primary}
+          warna={colors.black}
           title="Lihat Semua Kategori"
         />
       </View>

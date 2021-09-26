@@ -103,7 +103,7 @@ export default function EditProfile({navigation, route}) {
     setLoading(true);
     console.log('kirim edit', data);
     axios
-      .post('https://zavalabs.com/bmelektronik/api/profile.php', data)
+      .post('https://zavalabs.com/niagabusana/api/profile.php', data)
       .then(res => {
         console.log(res);
         storeData('user', res.data);

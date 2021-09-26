@@ -27,7 +27,7 @@ export default function MyProductDiscount() {
     getData('user').then(res => {
       setUser(res);
       axios
-        .post('https://zavalabs.com/bmelektronik/api/barang_diskon.php', {
+        .post('https://zavalabs.com/niagabusana/api/barang_diskon.php', {
           id_member: res.id,
         })
         .then(res => {
@@ -101,7 +101,7 @@ export default function MyProductDiscount() {
                   setLiked(unlike);
                   axios
                     .post(
-                      'https://zavalabs.com/bmelektronik/api/fav_delete_barang.php',
+                      'https://zavalabs.com/niagabusana/api/fav_delete_barang.php',
                       {
                         id: item.id,
                         id_member: user.id,
@@ -128,7 +128,7 @@ export default function MyProductDiscount() {
                     setLiked(unlike);
                     axios
                       .post(
-                        'https://zavalabs.com/bmelektronik/api/fav_delete_barang.php',
+                        'https://zavalabs.com/niagabusana/api/fav_delete_barang.php',
                         {
                           id: item.id,
                           id_member: user.id,
@@ -152,7 +152,7 @@ export default function MyProductDiscount() {
 
                     axios
                       .post(
-                        'https://zavalabs.com/bmelektronik/api/fav_add.php',
+                        'https://zavalabs.com/niagabusana/api/fav_add.php',
                         kirim,
                       )
                       .then(res => {});

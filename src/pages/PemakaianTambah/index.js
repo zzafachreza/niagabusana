@@ -19,7 +19,7 @@ import 'intl/locale-data/jsonp/en';
 export default function PemakaianTambah() {
   useEffect(() => {
     axios
-      .get('https://zavalabs.com/bmelektronik/api/barang_kebutuhan.php')
+      .get('https://zavalabs.com/niagabusana/api/barang_kebutuhan.php')
       .then(res => {
         console.log(res.data);
         setData(res.data);

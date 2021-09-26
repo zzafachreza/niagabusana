@@ -35,7 +35,7 @@ export default function AlamatTambah({navigation, route}) {
     // setLoading(true);
     console.log(data);
     axios
-      .post('https://zavalabs.com/bmelektronik/api/alamat_add.php', data)
+      .post('https://zavalabs.com/niagabusana/api/alamat_add.php', data)
       .then(res => {
         navigation.goBack();
       });

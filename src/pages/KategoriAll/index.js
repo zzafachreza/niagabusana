@@ -19,12 +19,10 @@ export default function KategoriAll({navigation}) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get('https://zavalabs.com/bmelektronik/api/kategori.php')
-      .then(res => {
-        console.log('get kategori', res.data);
-        setData(res.data);
-      });
+    axios.get('https://zavalabs.com/niagabusana/api/kategori.php').then(res => {
+      console.log('get kategori', res.data);
+      setData(res.data);
+    });
   }, []);
 
   const _renderITem = ({item}) => {
@@ -49,6 +47,7 @@ export default function KategoriAll({navigation}) {
           }}>
           {item.nama_kategori}
         </Text>
+        <Icon type="ionicon" name="chevron-forward-circle-outline" />
       </TouchableOpacity>
     );
   };

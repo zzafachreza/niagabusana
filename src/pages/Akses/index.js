@@ -40,7 +40,7 @@ export default function Login({navigation}) {
     console.log(data);
     setTimeout(() => {
       axios
-        .post('https://zavalabs.com/bmelektronik/api/akses.php', data)
+        .post('https://zavalabs.com/niagabusana/api/akses.php', data)
         .then(res => {
           if (res.data == 'success') {
             navigation.replace('Pemakaian');

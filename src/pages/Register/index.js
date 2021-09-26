@@ -33,7 +33,7 @@ export default function Register({navigation}) {
     setLoading(true);
     console.log(data);
     axios
-      .post('https://zavalabs.com/bmelektronik/api/register.php', data)
+      .post('https://zavalabs.com/niagabusana/api/register.php', data)
       .then(res => {
         console.log(res);
         let err = res.data.split('#');
@@ -80,7 +80,7 @@ export default function Register({navigation}) {
               color: colors.black,
               // maxWidth: 230,
             }}>
-            BM Elektronik
+            Niaga Busana
           </Text>
         </Text>
 

@@ -46,7 +46,7 @@ export default function Search2({navigation, route}) {
 
   const cariSub = (nama_sub, filter) => {
     axios
-      .post('https://zavalabs.com/bmelektronik/api/barang_cari_key.php', {
+      .post('https://zavalabs.com/niagabusana/api/barang_cari_key.php', {
         cari: nama_sub,
         filter: filter,
       })
@@ -59,7 +59,7 @@ export default function Search2({navigation, route}) {
 
   const getFilter = (nama_kategori = item.nama_kategori, filter) => {
     axios
-      .post('https://zavalabs.com/bmelektronik/api/barang_kategori.php', {
+      .post('https://zavalabs.com/niagabusana/api/barang_kategori.php', {
         cari: nama_kategori,
         filter: filter,
       })
@@ -78,7 +78,7 @@ export default function Search2({navigation, route}) {
     });
 
     axios
-      .post('https://zavalabs.com/bmelektronik/api/sub_kategori.php', {
+      .post('https://zavalabs.com/niagabusana/api/sub_kategori.php', {
         cari: item.nama_kategori,
       })
       .then(res => {
@@ -167,7 +167,7 @@ export default function Search2({navigation, route}) {
                   setLiked(unlike);
                   axios
                     .post(
-                      'https://zavalabs.com/bmelektronik/api/fav_delete_barang.php',
+                      'https://zavalabs.com/niagabusana/api/fav_delete_barang.php',
                       {
                         id: item.id,
                         id_member: user.id,
@@ -191,7 +191,7 @@ export default function Search2({navigation, route}) {
 
                   axios
                     .post(
-                      'https://zavalabs.com/bmelektronik/api/fav_add.php',
+                      'https://zavalabs.com/niagabusana/api/fav_add.php',
                       kirim,
                     )
                     .then(res => {});

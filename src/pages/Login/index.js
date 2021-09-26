@@ -40,7 +40,7 @@ export default function Login({navigation}) {
     console.log(data);
     setTimeout(() => {
       axios
-        .post('https://zavalabs.com/bmelektronik/api/login.php', data)
+        .post('https://zavalabs.com/niagabusana/api/login.php', data)
         .then(res => {
           console.log(res.data);
           setLoading(false);
@@ -52,7 +52,7 @@ export default function Login({navigation}) {
           } else {
             storeData('user', res.data);
             axios
-              .post('https://zavalabs.com/bmelektronik/api/update_token.php', {
+              .post('https://zavalabs.com/niagabusana/api/update_token.php', {
                 id_member: res.data.id,
                 token: token,
               })
@@ -78,7 +78,7 @@ export default function Login({navigation}) {
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: colors.primary,
+            backgroundColor: colors.white,
             padding: 10,
             borderRadius: 10,
           }}>
@@ -102,6 +102,7 @@ export default function Login({navigation}) {
               fontFamily: fonts.secondary[400],
               fontSize: windowWidth / 20,
               color: colors.black,
+              textAlign: 'center',
               // maxWidth: 230,
             }}>
             Silahkan login untuk masuk ke aplikasi{' '}
@@ -111,9 +112,7 @@ export default function Login({navigation}) {
                 fontSize: windowWidth / 20,
                 color: colors.black,
                 // maxWidth: 230,
-              }}>
-              BM Elektronik
-            </Text>
+              }}></Text>
           </Text>
 
           <MyGap jarak={20} />

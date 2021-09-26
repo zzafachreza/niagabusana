@@ -37,7 +37,7 @@ export default function Pemakaian({navigation, route}) {
 
   const getData = () => {
     axios
-      .post('https://zavalabs.com/bmelektronik/api/pemakaian.php')
+      .post('https://zavalabs.com/niagabusana/api/pemakaian.php')
       .then(res => {
         console.log('detail transaksi', res.data);
         setData(res.data);
@@ -46,12 +46,9 @@ export default function Pemakaian({navigation, route}) {
 
   const hanldeHapus = id => {
     axios
-      .post(
-        'https://zavalabs.com/bmelektronik/api/barang_pemakaian_hapus.php',
-        {
-          id: id,
-        },
-      )
+      .post('https://zavalabs.com/niagabusana/api/barang_pemakaian_hapus.php', {
+        id: id,
+      })
       .then(res => {
         console.log('detail transaksi', res.data);
         getData();

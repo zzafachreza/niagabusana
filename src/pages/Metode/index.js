@@ -37,7 +37,7 @@ export default function Metode({navigation}) {
 
   const UbahBayar = kirim => {
     axios
-      .post('https://zavalabs.com/bmelektronik/api/bayar_update.php', kirim)
+      .post('https://zavalabs.com/niagabusana/api/bayar_update.php', kirim)
       .then(res => {
         console.log(res);
         storeData('user', res.data);
@@ -47,7 +47,7 @@ export default function Metode({navigation}) {
 
   const getKartuKredit = id => {
     axios
-      .post('https://zavalabs.com/bmelektronik/api/kredit_kartu.php', {
+      .post('https://zavalabs.com/niagabusana/api/kredit_kartu.php', {
         id_member: id,
       })
       .then(res => {
@@ -101,7 +101,7 @@ export default function Metode({navigation}) {
                     bayar: 'TRANSFER BANK',
                     nama_bank: 'BUKOPIN',
                     foto_bank:
-                      'https://zavalabs.com/bmelektronik/api/images/bukopin.png',
+                      'https://zavalabs.com/niagabusana/api/images/bukopin.png',
                     id_member: user.id,
                   };
 
@@ -116,7 +116,7 @@ export default function Metode({navigation}) {
                   }}>
                   <Image
                     source={{
-                      uri: 'https://zavalabs.com/bmelektronik/api/images/bukopin.png',
+                      uri: 'https://zavalabs.com/niagabusana/api/images/bukopin.png',
                     }}
                     style={{height: 80, width: 100}}
                     resizeMode="center"
@@ -129,7 +129,7 @@ export default function Metode({navigation}) {
                     bayar: 'TRANSFER BANK',
                     nama_bank: 'BNI',
                     foto_bank:
-                      'https://zavalabs.com/bmelektronik/api/images/bni.png',
+                      'https://zavalabs.com/niagabusana/api/images/bni.png',
                     id_member: user.id,
                   };
 
@@ -144,7 +144,7 @@ export default function Metode({navigation}) {
                   }}>
                   <Image
                     source={{
-                      uri: 'https://zavalabs.com/bmelektronik/api/images/bni.png',
+                      uri: 'https://zavalabs.com/niagabusana/api/images/bni.png',
                     }}
                     style={{height: 80, width: 100}}
                     resizeMode="center"
@@ -160,7 +160,7 @@ export default function Metode({navigation}) {
                     bayar: 'TRANSFER BANK',
                     nama_bank: 'BRI',
                     foto_bank:
-                      'https://zavalabs.com/bmelektronik/api/images/bri.png',
+                      'https://zavalabs.com/niagabusana/api/images/bri.png',
                     id_member: user.id,
                   };
 
@@ -175,7 +175,7 @@ export default function Metode({navigation}) {
                   }}>
                   <Image
                     source={{
-                      uri: 'https://zavalabs.com/bmelektronik/api/images/bri.png',
+                      uri: 'https://zavalabs.com/niagabusana/api/images/bri.png',
                     }}
                     style={{height: 80, width: 100}}
                     resizeMode="center"
@@ -188,7 +188,7 @@ export default function Metode({navigation}) {
                     bayar: 'TRANSFER BANK',
                     nama_bank: 'MEGA',
                     foto_bank:
-                      'https://zavalabs.com/bmelektronik/api/images/mega.png',
+                      'https://zavalabs.com/niagabusana/api/images/mega.png',
                     id_member: user.id,
                   };
 
@@ -203,7 +203,7 @@ export default function Metode({navigation}) {
                   }}>
                   <Image
                     source={{
-                      uri: 'https://zavalabs.com/bmelektronik/api/images/mega.png',
+                      uri: 'https://zavalabs.com/niagabusana/api/images/mega.png',
                     }}
                     style={{height: 80, width: 100}}
                     resizeMode="center"
@@ -219,7 +219,7 @@ export default function Metode({navigation}) {
                     bayar: 'TRANSFER BANK',
                     nama_bank: 'MANDIRI',
                     foto_bank:
-                      'https://zavalabs.com/bmelektronik/api/images/mandiri.png',
+                      'https://zavalabs.com/niagabusana/api/images/mandiri.png',
                     id_member: user.id,
                   };
 
@@ -234,7 +234,7 @@ export default function Metode({navigation}) {
                   }}>
                   <Image
                     source={{
-                      uri: 'https://zavalabs.com/bmelektronik/api/images/mandiri.png',
+                      uri: 'https://zavalabs.com/niagabusana/api/images/mandiri.png',
                     }}
                     style={{height: 80, width: 100}}
                     resizeMode="center"
@@ -247,7 +247,7 @@ export default function Metode({navigation}) {
                     bayar: 'TRANSFER BANK',
                     nama_bank: 'BCA',
                     foto_bank:
-                      'https://zavalabs.com/bmelektronik/api/images/bca.png',
+                      'https://zavalabs.com/niagabusana/api/images/bca.png',
                     id_member: user.id,
                   };
 
@@ -262,7 +262,7 @@ export default function Metode({navigation}) {
                   }}>
                   <Image
                     source={{
-                      uri: 'https://zavalabs.com/bmelektronik/api/images/bca.png',
+                      uri: 'https://zavalabs.com/niagabusana/api/images/bca.png',
                     }}
                     style={{height: 80, width: 100}}
                     resizeMode="center"
@@ -270,115 +270,6 @@ export default function Metode({navigation}) {
                 </View>
               </TouchableWithoutFeedback>
             </View>
-          </View>
-        )}
-      </View>
-
-      <View
-        style={{
-          marginTop: 20,
-          backgroundColor: colors.white,
-          padding: 10,
-          borderRadius: 5,
-          elevation: 2,
-        }}>
-        <View
-          style={{
-            flexDirection: 'row',
-          }}>
-          <View style={{flex: 1}}>
-            <Text
-              style={{
-                color: colors.black,
-                maxWidth: '80%',
-                fontSize: windowWidth / 22,
-                fontFamily: fonts.secondary[400],
-              }}>
-              Kartu Kredit BM Elektronik
-            </Text>
-          </View>
-          <TouchableOpacity
-            onPress={() => {
-              if (!kartu) {
-                setKartu(true);
-              } else {
-                setKartu(false);
-              }
-            }}>
-            {!kartu && <Icon type="ionicon" name="chevron-down-outline" />}
-            {kartu && <Icon type="ionicon" name="chevron-up-outline" />}
-          </TouchableOpacity>
-        </View>
-        {kartu && (
-          <View
-            style={{
-              padding: 20,
-            }}>
-            <TouchableOpacity
-              onPress={() => {
-                const kirim = {
-                  bayar: 'KREDIT',
-                  nama_bank: 'BCA',
-                  foto_bank:
-                    'https://zavalabs.com/bmelektronik/api/images/bca.png',
-                  id_member: user.id,
-                };
-
-                console.log('send server', kirim);
-                UbahBayar(kirim);
-              }}
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-              }}>
-              <View>
-                {kredit.nama_pendaftar == null ? (
-                  <Text></Text>
-                ) : (
-                  <Icon type="ionicon" name="checkbox" />
-                )}
-              </View>
-              <View>
-                <Text
-                  style={{
-                    color: colors.black,
-                    left: 10,
-                    fontSize: windowWidth / 22,
-                    fontFamily: fonts.secondary[400],
-                  }}>
-                  {kredit.nama_pendaftar}
-                </Text>
-                <Text
-                  style={{
-                    color: colors.black,
-                    left: 10,
-                    fontSize: windowWidth / 22,
-                    fontFamily: fonts.secondary[600],
-                  }}>
-                  {kredit.telepon_pendaftar}
-                </Text>
-              </View>
-            </TouchableOpacity>
-            <MyGap jarak={30} />
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Kredit')}
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-              }}>
-              <View>
-                <Icon type="ionicon" name="add-circle" />
-              </View>
-              <Text
-                style={{
-                  color: colors.black,
-                  left: 10,
-                  fontSize: windowWidth / 25,
-                  fontFamily: fonts.secondary[400],
-                }}>
-                Tambahkan Kartu Kredit BM Elektronik
-              </Text>
-            </TouchableOpacity>
           </View>
         )}
       </View>

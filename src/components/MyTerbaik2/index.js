@@ -19,7 +19,7 @@ import {color} from 'react-native-elements/dist/helpers';
 
 export default function MyTerbaik2() {
   useEffect(() => {
-    axios.get('https://zavalabs.com/bmelektronik/api/brand2.php').then(res => {
+    axios.get('https://zavalabs.com/niagabusana/api/brand2.php').then(res => {
       console.log(res.data);
       setData(res.data);
       // setData(res.data.data);

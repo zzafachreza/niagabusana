@@ -48,7 +48,7 @@ export default function Cart({navigation, route}) {
 
   const __getDataBarang = id_member => {
     axios
-      .post('https://zavalabs.com/bmelektronik/api/cart.php', {
+      .post('https://zavalabs.com/niagabusana/api/cart.php', {
         id_member: id_member,
       })
       .then(res => {
@@ -60,7 +60,7 @@ export default function Cart({navigation, route}) {
   const hanldeHapus = (id, id_member) => {
     console.log(id + id_member);
     axios
-      .post('https://zavalabs.com/bmelektronik/api/cart_hapus.php', {
+      .post('https://zavalabs.com/niagabusana/api/cart_hapus.php', {
         id: id,
         id_member: id_member,
       })

@@ -149,7 +149,7 @@ export default function Bayar({navigation, route}) {
     console.log('kirim ke server', data);
     setTimeout(() => {
       axios
-        .post('https://zavalabs.com/bmelektronik/api/transaksi_add.php', data)
+        .post('https://zavalabs.com/niagabusana/api/transaksi_add.php', data)
         .then(res => {
           console.log(res);
           setLoading(false);
@@ -234,7 +234,7 @@ export default function Bayar({navigation, route}) {
                 fontFamily: fonts.secondary[600],
                 padding: 10,
               }}>
-              75243132
+              32117081945
             </Text>
           </View>
           <View
@@ -260,7 +260,7 @@ export default function Bayar({navigation, route}) {
                 fontFamily: fonts.secondary[600],
                 padding: 10,
               }}>
-              BM Elektronik
+              PT. Zavalabs Teknologi Indonesia
             </Text>
           </View>
           <View

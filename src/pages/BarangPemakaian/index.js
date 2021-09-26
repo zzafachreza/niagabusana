@@ -104,7 +104,7 @@ export default function BarangPemakaian({navigation, route}) {
     console.log('kirim tok server', kirim);
     axios
       .post(
-        'https://zavalabs.com/bmelektronik/api/barang_pemakaian_add.php',
+        'https://zavalabs.com/niagabusana/api/barang_pemakaian_add.php',
         kirim,
       )
       .then(res => {

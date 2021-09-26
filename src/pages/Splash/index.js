@@ -23,12 +23,12 @@ export default function Splash({navigation}) {
   const scaleText = new Animated.Value(100);
 
   Animated.timing(scaleLogo, {
-    toValue: 0.3,
+    toValue: 0.5,
     duration: 1000,
   }).start();
 
   Animated.timing(scaleText, {
-    toValue: 1,
+    toValue: 0,
     duration: 1000,
   }).start();
 
@@ -40,6 +40,7 @@ export default function Splash({navigation}) {
 
         setTimeout(() => {
           navigation.replace('GetStarted');
+          // navigation.replace('MainApp');
         }, 1500);
       } else {
         console.log('sudah login logon');
@@ -66,27 +67,29 @@ export default function Splash({navigation}) {
             aspectRatio: scaleLogo,
           }}
         />
-        {/* <Animated.View
+        <Animated.View
           style={{
             top: scaleText,
+            justifyContent: 'center',
+            alignItems: 'center',
           }}>
           <Text
             style={{
               fontFamily: fonts.secondary[800],
-              fontSize: windowWidth / 7,
-              color: colors.white,
+              fontSize: windowWidth / 13,
+              color: colors.black,
             }}>
-            WANDHA
+            NIAGA BUSANA
           </Text>
           <Text
             style={{
-              fontFamily: fonts.secondary[600],
-              fontSize: windowWidth / 9,
-              color: colors.secondary,
+              fontFamily: fonts.secondary[400],
+              fontSize: windowWidth / 22,
+              color: colors.black,
             }}>
-            ELEKTRONIK
+            ONLINE DEPARTEMENT STORE
           </Text>
-        </Animated.View> */}
+        </Animated.View>
       </View>
     </SafeAreaView>
   );
@@ -94,7 +97,7 @@ export default function Splash({navigation}) {
 
 const styles = StyleSheet.create({
   page: {
-    backgroundColor: colors.primary,
+    backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,

@@ -27,7 +27,7 @@ export default function Tenor({navigation, route}) {
   const [data, setData] = useState([]);
   const getTenor = () => {
     axios
-      .post('https://zavalabs.com/bmelektronik/api/kredit_cicilan.php', {
+      .post('https://zavalabs.com/niagabusana/api/kredit_cicilan.php', {
         kode: route.params.kode,
       })
       .then(res => {

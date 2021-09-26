@@ -43,7 +43,7 @@ export default function Wishlist({navigation, route}) {
 
   const __getDataBarang = id_member => {
     axios
-      .post('https://zavalabs.com/bmelektronik/api/fav.php', {
+      .post('https://zavalabs.com/niagabusana/api/fav.php', {
         id_member: id_member,
       })
       .then(res => {
@@ -55,7 +55,7 @@ export default function Wishlist({navigation, route}) {
   const hanldeHapus = (id, id_member) => {
     console.log(id + id_member);
     axios
-      .post('https://zavalabs.com/bmelektronik/api/fav_delete.php', {
+      .post('https://zavalabs.com/niagabusana/api/fav_delete.php', {
         id: id,
         id_member: id_member,
       })
@@ -68,7 +68,7 @@ export default function Wishlist({navigation, route}) {
   const addToCart = item => {
     console.log(item);
     axios
-      .post('https://zavalabs.com/bmelektronik/api/barang_add.php', item)
+      .post('https://zavalabs.com/niagabusana/api/barang_add.php', item)
       .then(res => {
         console.log(res);
         // navigation.navigate('Success2', {

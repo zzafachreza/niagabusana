@@ -64,7 +64,7 @@ export default function Barang({navigation, route}) {
     };
     console.log('kirim tok server', kirim);
     axios
-      .post('https://zavalabs.com/bmelektronik/api/barang_add.php', kirim)
+      .post('https://zavalabs.com/niagabusana/api/barang_add.php', kirim)
       .then(res => {
         console.log(res);
         // navigation.navigate('Success2', {

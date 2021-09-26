@@ -30,7 +30,7 @@ export default function Alamat({navigation, route}) {
 
   const getDataAlamat = () => {
     axios
-      .post('https://zavalabs.com/bmelektronik/api/alamat.php', {
+      .post('https://zavalabs.com/niagabusana/api/alamat.php', {
         id: route.params.id,
       })
       .then(res => {
@@ -41,7 +41,7 @@ export default function Alamat({navigation, route}) {
 
   const hapus = x => {
     axios
-      .post('https://zavalabs.com/bmelektronik/api/alamat_hapus.php', {
+      .post('https://zavalabs.com/niagabusana/api/alamat_hapus.php', {
         id: route.params.id,
         id_alamat: x,
       })
@@ -123,7 +123,7 @@ export default function Alamat({navigation, route}) {
                   console.log('kiirm', kirim);
                   axios
                     .post(
-                      'https://zavalabs.com/bmelektronik/api/alamat_pilih.php',
+                      'https://zavalabs.com/niagabusana/api/alamat_pilih.php',
                       kirim,
                     )
                     .then(res => {

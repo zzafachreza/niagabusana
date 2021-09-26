@@ -21,7 +21,7 @@ export default function ListDetail({navigation, route}) {
 
   useEffect(() => {
     axios
-      .post('https://zavalabs.com/bmelektronik/api/transaksi_detail.php', {
+      .post('https://zavalabs.com/niagabusana/api/transaksi_detail.php', {
         kode: item.kode,
       })
       .then(res => {

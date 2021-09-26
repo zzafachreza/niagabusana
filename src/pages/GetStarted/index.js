@@ -104,7 +104,7 @@ export default function GetStarted({navigation}) {
 
 const styles = StyleSheet.create({
   page: {
-    backgroundColor: colors.primary,
+    backgroundColor: colors.white,
     flex: 1,
     padding: 20,
   },

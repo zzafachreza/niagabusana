@@ -31,7 +31,7 @@ export default function Kredit({navigation}) {
   const simpan = () => {
     console.log('kirim ke server', data);
     axios
-      .post('https://zavalabs.com/bmelektronik/api/kredit_update.php', data)
+      .post('https://zavalabs.com/niagabusana/api/kredit_update.php', data)
       .then(res => {
         console.log(res.data);
         storeData('user', res.data);
