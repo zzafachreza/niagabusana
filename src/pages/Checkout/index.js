@@ -89,7 +89,7 @@ export default function Checkout({navigation, route}) {
               padding: 20,
             }}>
             <View style={{flexDirection: 'row'}}>
-              <View style={{}}>
+              <View style={{flex: 1}}>
                 <Text
                   style={{
                     color: colors.black,

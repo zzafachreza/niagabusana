@@ -100,7 +100,7 @@ export default function BottomNavigator({state, descriptors, navigation}) {
             style={{flex: 1}}>
             <View
               style={{
-                color: isFocused ? colors.primary : '#919095',
+                color: isFocused ? colors.primary : colors.primary,
                 backgroundColor: isFocused ? 'white' : '#FFFFFF',
                 paddingTop: 5,
                 paddingBottom: 0,
@@ -126,21 +126,12 @@ export default function BottomNavigator({state, descriptors, navigation}) {
                   justifyContent: 'center',
                   alignItems: 'center',
                 }}>
-                {iconName == 'cart-outline' ? (
-                  <Icon
-                    name={iconName}
-                    type={iconType}
-                    size={windowWidth / 20}
-                    color={isFocused ? colors.warning : colors.success}
-                  />
-                ) : (
-                  <Icon
-                    name={iconName}
-                    type={iconType}
-                    size={windowWidth / 20}
-                    color={isFocused ? colors.primary : '#919095'}
-                  />
-                )}
+                <Icon
+                  name={iconName}
+                  type={iconType}
+                  size={windowWidth / 20}
+                  color={isFocused ? colors.primary : ''}
+                />
 
                 <Text
                   style={{
@@ -152,7 +143,7 @@ export default function BottomNavigator({state, descriptors, navigation}) {
                         ? 'white'
                         : isFocused
                         ? colors.primary
-                        : '#919095',
+                        : colors.primary,
                   }}></Text>
               </View>
             </View>

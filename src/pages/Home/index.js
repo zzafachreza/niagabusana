@@ -130,7 +130,7 @@ export default function Home({navigation}) {
             <Text
               style={{
                 fontSize: windowWidth / 25,
-                color: colors.black,
+                color: colors.primary,
                 fontFamily: fonts.secondary[400],
               }}>
               Selamat datang,
@@ -138,7 +138,7 @@ export default function Home({navigation}) {
             <Text
               style={{
                 fontSize: windowWidth / 25,
-                color: colors.black,
+                color: colors.primary,
                 fontFamily: fonts.secondary[600],
               }}>
               {user.nama_lengkap}
@@ -160,16 +160,16 @@ export default function Home({navigation}) {
               <Icon
                 type="ionicon"
                 name="cart-outline"
-                color={colors.black}
+                color={colors.primary}
                 size={windowWidth / 12}
               />
               {cart > 0 && (
                 <View
                   style={{
-                    width: 25,
-                    // height: 15,
-                    borderRadius: 5,
-                    backgroundColor: colors.success,
+                    width: 20,
+                    height: 20,
+                    borderRadius: 20,
+                    backgroundColor: colors.primary,
                     position: 'absolute',
                     right: 0,
                     top: 10,
@@ -179,7 +179,7 @@ export default function Home({navigation}) {
                   <Text
                     style={{
                       fontFamily: fonts.secondary[600],
-                      color: colors.black,
+                      color: colors.white,
                       fontSize: windowWidth / 35,
                     }}>
                     {cart}

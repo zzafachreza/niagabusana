@@ -39,7 +39,7 @@ export default function Account({navigation, route}) {
           <View
             style={{
               borderRadius: 75,
-              backgroundColor: 'red',
+
               justifyContent: 'center',
               alignItems: 'center',
               overflow: 'hidden',
@@ -60,6 +60,7 @@ export default function Account({navigation, route}) {
             style={{
               fontFamily: fonts.secondary[400],
               fontSize: windowWidth / 20,
+              color: colors.primary,
             }}>
             {user.nama_lengkap}
           </Text>
@@ -87,12 +88,14 @@ export default function Account({navigation, route}) {
               <Text
                 style={{
                   fontFamily: fonts.secondary[600],
+                  color: colors.primary,
                 }}>
                 E-mail
               </Text>
               <Text
                 style={{
                   fontFamily: fonts.secondary[400],
+                  color: colors.primary,
                 }}>
                 {user.email}
               </Text>
@@ -110,12 +113,14 @@ export default function Account({navigation, route}) {
                 <Text
                   style={{
                     fontFamily: fonts.secondary[600],
+                    color: colors.primary,
                   }}>
                   Alamat
                 </Text>
                 <Text
                   style={{
                     fontFamily: fonts.secondary[400],
+                    color: colors.primary,
                   }}>
                   {user.alamat}
                 </Text>
@@ -130,21 +135,21 @@ export default function Account({navigation, route}) {
                 marginVertical: 5,
                 padding: 10,
                 borderRadius: 10,
-                backgroundColor: colors.success,
+                backgroundColor: colors.white,
                 flexDirection: 'row',
               }}>
               <View style={{flex: 1}}>
                 <Text
                   style={{
                     fontFamily: fonts.secondary[600],
-                    color: colors.white,
+                    color: colors.primary,
                   }}>
                   Transaksi
                 </Text>
                 <Text
                   style={{
                     fontFamily: fonts.secondary[400],
-                    color: colors.white,
+                    color: colors.primary,
                   }}>
                   Informasi Transaksi Anda
                 </Text>
@@ -161,7 +166,8 @@ export default function Account({navigation, route}) {
           <MyButton
             onPress={btnKeluar}
             title="Keluar"
-            warna={colors.warning}
+            colorText={colors.primary}
+            iconColor={colors.primary}
             Icons="log-out-outline"
           />
         </View>

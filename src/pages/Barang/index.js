@@ -129,9 +129,9 @@ export default function Barang({navigation, route}) {
             <View
               style={{
                 width: 20,
-                // height: 15,
-                borderRadius: 5,
-                backgroundColor: colors.success,
+                height: 20,
+                borderRadius: 10,
+                backgroundColor: colors.white,
                 position: 'absolute',
                 right: 0,
                 top: 1,
@@ -141,7 +141,7 @@ export default function Barang({navigation, route}) {
               <Text
                 style={{
                   fontFamily: fonts.secondary[600],
-                  color: colors.white,
+                  color: colors.primary,
                   fontSize: windowWidth / 35,
                 }}>
                 {cart}
@@ -170,7 +170,7 @@ export default function Barang({navigation, route}) {
               style={{
                 alignSelf: 'flex-end',
                 textAlign: 'center',
-                backgroundColor: colors.success,
+                backgroundColor: colors.primary,
                 borderRadius: 5,
                 color: colors.white,
                 padding: 10,
@@ -210,7 +210,7 @@ export default function Barang({navigation, route}) {
               style={{
                 fontFamily: fonts.secondary[600],
                 fontSize: windowWidth / 25,
-                color: colors.black,
+                color: colors.primary,
               }}>
               {item.nama_barang}
             </Text>
@@ -219,7 +219,7 @@ export default function Barang({navigation, route}) {
                 marginVertical: 5,
                 fontFamily: fonts.secondary[600],
                 fontSize: windowWidth / 20,
-                color: colors.warning,
+                color: colors.primary,
               }}>
               Rp. {new Intl.NumberFormat().format(item.harga)}
             </Text>
@@ -258,9 +258,9 @@ export default function Barang({navigation, route}) {
               style={{
                 fontFamily: fonts.secondary[400],
                 fontSize: windowWidth / 30,
-                color: colors.black,
+                color: colors.primary,
               }}>
-              {item.keterangan} ini adalah deskripsi dari produk
+              {item.keterangan}
             </Text>
           </View>
         </View>
@@ -270,7 +270,7 @@ export default function Barang({navigation, route}) {
           fontWeight="bold"
           radius={0}
           title="TAMBAH KERANJANG"
-          warna={colors.warning}
+          warna={colors.primary}
           onPress={onOpen}
         />
       )}
@@ -306,7 +306,7 @@ export default function Barang({navigation, route}) {
                   style={{
                     fontFamily: fonts.secondary[600],
                     fontSize: 20,
-                    color: colors.warning,
+                    color: colors.primary,
                   }}>
                   Rp. {new Intl.NumberFormat().format(item.harga * jumlah)}
                 </Text>
@@ -326,7 +326,7 @@ export default function Barang({navigation, route}) {
                 <Text
                   style={{
                     fontFamily: fonts.secondary[600],
-                    color: colors.primary,
+                    color: colors.black,
                   }}>
                   Jumlah
                 </Text>
@@ -347,7 +347,7 @@ export default function Barang({navigation, route}) {
                       : setJumlah(jumlah - 1);
                   }}
                   style={{
-                    backgroundColor: colors.secondary,
+                    backgroundColor: colors.primary,
                     width: '30%',
                     borderRadius: 10,
                     height: 40,
@@ -377,7 +377,7 @@ export default function Barang({navigation, route}) {
                       : setJumlah(jumlah + 1);
                   }}
                   style={{
-                    backgroundColor: colors.secondary,
+                    backgroundColor: colors.primary,
                     width: '30%',
                     borderRadius: 10,
                     marginLeft: 10,

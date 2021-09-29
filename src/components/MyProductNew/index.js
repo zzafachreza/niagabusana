@@ -70,7 +70,7 @@ export default function MyProductNew() {
             {item.stok > 0 && (
               <Text
                 style={{
-                  backgroundColor: colors.success,
+                  backgroundColor: colors.primary,
                   borderRadius: 5,
                   color: colors.white,
                   paddingHorizontal: 5,
@@ -200,7 +200,7 @@ export default function MyProductNew() {
               style={{
                 fontFamily: fonts.secondary[600],
                 fontSize: windowWidth / 25,
-                color: colors.warning,
+                color: colors.primary,
               }}>
               {' '}
               Rp. {new Intl.NumberFormat().format(item.harga)}
@@ -225,7 +225,7 @@ export default function MyProductNew() {
                   <Text
                     style={{
                       left: 10,
-                      backgroundColor: colors.warning,
+                      backgroundColor: colors.primary,
                       borderRadius: 5,
                       color: colors.white,
                       paddingHorizontal: 5,
@@ -270,7 +270,7 @@ export default function MyProductNew() {
             style={{
               flex: 1,
               fontFamily: fonts.secondary[400],
-              color: colors.black,
+              color: colors.primary,
               left: 10,
               fontSize: windowWidth / 12,
             }}>
@@ -281,7 +281,7 @@ export default function MyProductNew() {
             <Text
               style={{
                 fontFamily: fonts.secondary[400],
-                color: colors.black,
+                color: colors.primary,
 
                 fontSize: windowWidth / 30,
               }}>
@@ -313,16 +313,6 @@ const styles = StyleSheet.create({
   },
   card: {
     width: windowWidth / 2,
-    shadowColor: 'white',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: -10,
-      height: 2,
-    },
-    shadowOpacity: 0.44,
-    shadowRadius: 5.32,
-
-    elevation: 5,
 
     borderRadius: 15,
     overflow: 'hidden',

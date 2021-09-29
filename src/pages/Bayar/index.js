@@ -123,9 +123,9 @@ export default function Bayar({navigation, route}) {
             }}>
             <MyButton
               onPress={onPress1}
-              colorText={colors.black}
+              colorText={colors.primary}
               title="KAMERA"
-              warna={colors.border}
+              warna={colors.white}
             />
           </View>
           <View
@@ -136,7 +136,7 @@ export default function Bayar({navigation, route}) {
             <MyButton
               onPress={onPress2}
               title="GALLERY"
-              warna={colors.warning}
+              warna={colors.primary}
             />
           </View>
         </View>

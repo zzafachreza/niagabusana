@@ -111,7 +111,7 @@ export default function Cart({navigation, route}) {
             marginVertical: 10,
             borderRadius: 10,
             padding: 10,
-            elevation: 2,
+
             backgroundColor: colors.white,
           }}>
           <View style={{flexDirection: 'row'}}>
@@ -138,6 +138,7 @@ export default function Cart({navigation, route}) {
                   fontFamily: fonts.secondary[400],
                   flex: 1,
                   fontSize: windowWidth / 30,
+                  color: colors.primary,
                 }}>
                 {new Intl.NumberFormat().format(item.harga)} x {item.qty}
               </Text>
@@ -149,7 +150,7 @@ export default function Cart({navigation, route}) {
                 <Text
                   style={{
                     fontFamily: fonts.secondary[600],
-                    color: colors.warning,
+                    color: colors.primary,
                     fontSize: windowWidth / 25,
                   }}>
                   {new Intl.NumberFormat().format(item.total)}
@@ -205,8 +206,7 @@ export default function Cart({navigation, route}) {
             })
           }
           style={{
-            flex: 1,
-            backgroundColor: colors.primary,
+            backgroundColor: colors.white,
             padding: 30,
             justifyContent: 'center',
             alignItems: 'center',
@@ -215,7 +215,7 @@ export default function Cart({navigation, route}) {
             style={{
               fontSize: windowWidth / 18,
               fontFamily: fonts.secondary[600],
-              color: 'white',
+              color: colors.primary,
             }}>
             CHECKOUT
           </Text>

@@ -23,24 +23,24 @@ export default function MyCarouser() {
   const navigation = useNavigation();
 
   useEffect(() => {
-    // axios.get('https://zavalabs.com/sebatiku/api/slider.php').then(res => {
-    //   setData(res.data);
-    // });
+    axios.get('https://zavalabs.com/niagabusana/api/slider.php').then(res => {
+      setData(res.data);
+    });
   }, []);
 
   const [data, setData] = useState([
-    {
-      image:
-        'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80',
-    },
-    {
-      image:
-        'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80',
-    },
-    {
-      image:
-        'https://images.unsplash.com/photo-1612423284934-2850a4ea6b0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80',
-    },
+    // {
+    //   image:
+    //     'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80',
+    // },
+    // {
+    //   image:
+    //     'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80',
+    // },
+    // {
+    //   image:
+    //     'https://images.unsplash.com/photo-1612423284934-2850a4ea6b0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80',
+    // },
   ]);
 
   const renderCarouselItem = ({item}) => (
@@ -70,6 +70,7 @@ export default function MyCarouser() {
         />
         <Text
           style={{
+            flex: 1,
             fontFamily: fonts.secondary[800],
             color: colors.primary,
             left: 10,
@@ -77,6 +78,9 @@ export default function MyCarouser() {
           }}>
           NIAGA BUSANA
         </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Search')}>
+          <Icon type="ionicon" name="search" color={colors.primary} />
+        </TouchableOpacity>
       </View>
       <Carousel
         loop={true}

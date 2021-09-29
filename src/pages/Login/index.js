@@ -101,7 +101,7 @@ export default function Login({navigation}) {
             style={{
               fontFamily: fonts.secondary[400],
               fontSize: windowWidth / 20,
-              color: colors.black,
+              color: colors.primary,
               textAlign: 'center',
               // maxWidth: 230,
             }}>

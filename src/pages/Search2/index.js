@@ -95,7 +95,7 @@ export default function Search2({navigation, route}) {
       <TouchableOpacity
         onPress={() => cariSub(item.nama_sub_kategori)}
         style={{
-          backgroundColor: colors.black,
+          backgroundColor: colors.primary,
           margin: 10,
           paddingVertical: 10,
           paddingHorizontal: 20,
@@ -123,6 +123,7 @@ export default function Search2({navigation, route}) {
             uri: item.foto,
           }}
         />
+
         <View style={{flexDirection: 'row'}}>
           <View
             style={{
@@ -135,7 +136,7 @@ export default function Search2({navigation, route}) {
             {item.stok > 0 && (
               <Text
                 style={{
-                  backgroundColor: colors.success,
+                  backgroundColor: colors.primary,
                   borderRadius: 5,
                   color: colors.white,
                   paddingHorizontal: 5,
@@ -159,10 +160,9 @@ export default function Search2({navigation, route}) {
             style={{
               padding: 10,
             }}>
-            <TouchableOpacity
-              onPress={() => {
-                console.log(liked);
-                if (liked.includes(index)) {
+            {item.favorit > 0 ? (
+              <TouchableOpacity
+                onPress={() => {
                   let unlike = liked.filter(elem => elem !== index);
                   setLiked(unlike);
                   axios
@@ -175,35 +175,63 @@ export default function Search2({navigation, route}) {
                     )
                     .then(res => {
                       console.log('delete', res);
+                      getDataBarang();
                     });
-                } else {
-                  setLiked([...liked, index]);
-                  const kirim = {
-                    id_member: user.id,
-                    id_barang: item.id,
-                    nama_barang: item.nama_barang,
-                    qty: 1,
-                    uom: item.uom,
-                    harga: item.harga,
-                    total: item.harga,
-                    foto: item.foto,
-                  };
+                }}>
+                <Icon
+                  type="ionicon"
+                  name={liked.includes(index) ? 'heart' : 'heart'}
+                  size={windowWidth / 15}
+                  color={colors.primary}
+                />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+                onPress={() => {
+                  console.log(liked);
+                  if (liked.includes(index)) {
+                    let unlike = liked.filter(elem => elem !== index);
+                    setLiked(unlike);
+                    axios
+                      .post(
+                        'https://zavalabs.com/niagabusana/api/fav_delete_barang.php',
+                        {
+                          id: item.id,
+                          id_member: user.id,
+                        },
+                      )
+                      .then(res => {
+                        console.log('delete', res);
+                      });
+                  } else {
+                    setLiked([...liked, index]);
+                    const kirim = {
+                      id_member: user.id,
+                      id_barang: item.id,
+                      nama_barang: item.nama_barang,
+                      qty: 1,
+                      uom: item.uom,
+                      harga: item.harga,
+                      total: item.harga,
+                      foto: item.foto,
+                    };
 
-                  axios
-                    .post(
-                      'https://zavalabs.com/niagabusana/api/fav_add.php',
-                      kirim,
-                    )
-                    .then(res => {});
-                }
-              }}>
-              <Icon
-                type="ionicon"
-                name={liked.includes(index) ? 'heart' : 'heart-outline'}
-                size={windowWidth / 15}
-                color={colors.primary}
-              />
-            </TouchableOpacity>
+                    axios
+                      .post(
+                        'https://zavalabs.com/niagabusana/api/fav_add.php',
+                        kirim,
+                      )
+                      .then(res => {});
+                  }
+                }}>
+                <Icon
+                  type="ionicon"
+                  name={liked.includes(index) ? 'heart' : 'heart-outline'}
+                  size={windowWidth / 15}
+                  color={colors.primary}
+                />
+              </TouchableOpacity>
+            )}
           </View>
         </View>
         <View
@@ -238,7 +266,7 @@ export default function Search2({navigation, route}) {
               style={{
                 fontFamily: fonts.secondary[600],
                 fontSize: windowWidth / 25,
-                color: colors.warning,
+                color: colors.primary,
               }}>
               {' '}
               Rp. {new Intl.NumberFormat().format(item.harga)}
@@ -263,7 +291,7 @@ export default function Search2({navigation, route}) {
                   <Text
                     style={{
                       left: 10,
-                      backgroundColor: colors.warning,
+                      backgroundColor: colors.primary,
                       borderRadius: 5,
                       color: colors.white,
                       paddingHorizontal: 5,
@@ -349,6 +377,7 @@ export default function Search2({navigation, route}) {
         style={{
           flex: 1,
           padding: 10,
+          backgroundColor: colors.white,
         }}>
         <FlatList
           numColumns={2}
@@ -473,16 +502,6 @@ const styles = StyleSheet.create({
   },
   card: {
     flex: 0.5,
-    shadowColor: 'white',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: -10,
-      height: 2,
-    },
-    shadowOpacity: 0.44,
-    shadowRadius: 5.32,
-
-    elevation: 5,
 
     borderRadius: 15,
     overflow: 'hidden',

@@ -11,6 +11,7 @@ import {fonts} from '../../utils/fonts';
 import LottieView from 'lottie-react-native';
 import {MyButton} from '../../components';
 import {colors} from '../../utils/colors';
+import {Icon} from 'react-native-elements';
 
 export default function Success({navigation, route}) {
   const windowWidth = Dimensions.get('window').width;
@@ -18,7 +19,7 @@ export default function Success({navigation, route}) {
   const txt = new Animated.Value(-windowWidth);
 
   Animated.timing(txt, {
-    toValue: 10,
+    toValue: -100,
     duration: 800,
     useNativeDriver: false,
   }).start();
@@ -32,20 +33,21 @@ export default function Success({navigation, route}) {
       <View
         style={{
           flex: 1,
-          justifyContent: 'flex-end',
+          justifyContent: 'center',
           alignItems: 'center',
-          paddingBottom: 100,
         }}>
-        <LottieView
-          source={require('../../assets/success.json')}
-          autoPlay
-          loop={false}
+        <Icon
+          style={{alignSelf: 'center', justifyContent: 'center'}}
+          size={300}
+          type="ionicon"
+          name="checkmark-circle"
+          color={colors.primary}
         />
         <Animated.Text
           style={{
             fontFamily: fonts.secondary[400],
             fontSize: windowWidth / 22,
-            color: 'black',
+            color: colors.primary,
             bottom: txt,
           }}>
           {messege}
@@ -58,7 +60,7 @@ export default function Success({navigation, route}) {
         }}>
         <MyButton
           title="MASUK SEKARANG"
-          warna={colors.secondary}
+          warna={colors.primary}
           onPress={() => navigation.replace('Login')}
         />
       </View>

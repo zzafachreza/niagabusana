@@ -68,8 +68,8 @@ export default function Register({navigation}) {
             marginTop: 20,
             fontFamily: fonts.secondary[400],
             fontSize: 16,
-            color: colors.black,
-            // maxWidth: 230,
+            color: colors.primary,
+            // maxWidth: primary,
           }}>
           Silahkan melakukan pendaftaran terlebih dahulu, sebelum login ke
           Aplikasi{' '}
@@ -77,7 +77,7 @@ export default function Register({navigation}) {
             style={{
               fontFamily: fonts.secondary[600],
               fontSize: windowWidth / 25,
-              color: colors.black,
+              color: colors.primary,
               // maxWidth: 230,
             }}>
             Niaga Busana
