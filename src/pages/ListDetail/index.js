@@ -260,26 +260,6 @@ export default function ListDetail({navigation, route}) {
               fontSize: windowWidth / 30,
               color: colors.black,
             }}>
-            Subtotal Pengiriman:
-          </Text>
-          <Text
-            style={{
-              fontFamily: fonts.secondary[600],
-              fontSize: windowWidth / 20,
-              color: colors.black,
-            }}>
-            Rp. {item.ongkir}
-          </Text>
-        </View>
-
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Text
-            style={{
-              flex: 1,
-              fontFamily: fonts.secondary.normal,
-              fontSize: windowWidth / 30,
-              color: colors.black,
-            }}>
             Total Pembayaran:
           </Text>
           <Text

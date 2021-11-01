@@ -273,6 +273,40 @@ export default function Metode({navigation}) {
           </View>
         )}
       </View>
+
+      <MyGap jarak={30} />
+
+      <View>
+        <TouchableOpacity
+          onPress={() => {
+            const kirim = {
+              bayar: 'LANGSUNG DI TOKO',
+              nama_bank: 'BNI',
+              foto_bank: 'https://zavalabs.com/niagabusana/api/images/bni.png',
+              id_member: user.id,
+            };
+
+            console.log('send server', kirim);
+            UbahBayar(kirim);
+          }}
+          style={{
+            padding: 15,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: colors.secondary,
+            borderRadius: 10,
+          }}>
+          <Text
+            style={{
+              color: colors.black,
+              maxWidth: '80%',
+              fontSize: windowWidth / 22,
+              fontFamily: fonts.secondary[400],
+            }}>
+            Langusng Di Toko
+          </Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }

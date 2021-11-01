@@ -68,7 +68,7 @@ export default function Register({navigation}) {
             marginTop: 20,
             fontFamily: fonts.secondary[400],
             fontSize: 16,
-            color: colors.primary,
+            color: colors.tertiary,
             // maxWidth: primary,
           }}>
           Silahkan melakukan pendaftaran terlebih dahulu, sebelum login ke
@@ -77,7 +77,7 @@ export default function Register({navigation}) {
             style={{
               fontFamily: fonts.secondary[600],
               fontSize: windowWidth / 25,
-              color: colors.primary,
+              color: colors.black,
               // maxWidth: 230,
             }}>
             Niaga Busana
@@ -86,7 +86,8 @@ export default function Register({navigation}) {
 
         <MyGap jarak={20} />
         <MyInput
-          label="Nama Lengkap"
+          label="Nama Lengkap / Nama Toko"
+          colorIcon={colors.secondary}
           iconname="person"
           value={data.nama_lengkap}
           onChangeText={value =>
@@ -99,6 +100,7 @@ export default function Register({navigation}) {
         <MyGap jarak={10} />
         <MyInput
           label="Email"
+          colorIcon={colors.secondary}
           iconname="mail"
           value={data.email}
           onChangeText={value =>
@@ -111,6 +113,7 @@ export default function Register({navigation}) {
         <MyGap jarak={10} />
         <MyInput
           label="Alamat"
+          colorIcon={colors.secondary}
           iconname="map"
           value={data.alamat}
           onChangeText={value =>
@@ -122,8 +125,9 @@ export default function Register({navigation}) {
         />
         <MyGap jarak={10} />
         <MyInput
-          label="Telepon"
+          label="Telepon / Whatsapp (Cth : 081...)"
           iconname="call"
+          colorIcon={colors.secondary}
           keyboardType="number-pad"
           value={data.telepon}
           onChangeText={value =>
@@ -136,6 +140,7 @@ export default function Register({navigation}) {
         <MyGap jarak={10} />
         <MyInput
           label="Password"
+          colorIcon={colors.secondary}
           iconname="key"
           secureTextEntry
           value={data.password}
@@ -146,13 +151,46 @@ export default function Register({navigation}) {
             })
           }
         />
-        <MyGap jarak={20} />
-        <MyButton
-          warna={colors.primary}
-          title="REGISTER"
-          Icons="log-in"
-          onPress={simpan}
+        <MyGap jarak={10} />
+        <MyInput
+          label="Konfirmasi Password"
+          colorIcon={colors.secondary}
+          iconname="key"
+          secureTextEntry
+          value={data.newpassword}
+          onChangeText={value => {
+            if (value == data.password) {
+              setData({
+                ...data,
+                newpassword: value,
+                statusPassword: 'Sesuai',
+              });
+            } else {
+              setData({
+                ...data,
+                newpassword: value,
+                statusPassword: 'Password Tidak Sesuai',
+              });
+            }
+          }}
         />
+        <Text
+          style={{
+            // backgroundColor: colors.primary,/
+            textAlign: 'right',
+            right: 10,
+          }}>
+          {data.statusPassword}
+        </Text>
+        <MyGap jarak={20} />
+        {data.statusPassword == 'Sesuai' && (
+          <MyButton
+            warna={colors.secondary}
+            title="REGISTER"
+            Icons="log-in"
+            onPress={simpan}
+          />
+        )}
         <MyGap jarak={20} />
       </ScrollView>
       {loading && (

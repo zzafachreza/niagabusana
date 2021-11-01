@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   ScrollView,
   Image,
+  Alert,
 } from 'react-native';
 import {tan} from 'react-native-reanimated';
 import {colors} from '../../utils/colors';
@@ -183,27 +184,43 @@ export default function ListData({navigation}) {
                   </Text>
                   <TouchableOpacity
                     onPress={() => {
-                      axios
-                        .post(
-                          'https://zavalabs.com/niagabusana/api/transaksi_hapus.php',
+                      Alert.alert(
+                        'NIAGA BUSANA',
+                        'Apakah Anda yakin akan hapus transaksi ini ?',
+                        [
                           {
-                            id_member: item.id_member,
-                            kode: item.kode,
+                            text: 'Cancel',
+                            onPress: () => console.log('Cancel Pressed'),
+                            style: 'cancel',
                           },
-                        )
-                        .then(res => {
-                          axios
-                            .post(
-                              'https://zavalabs.com/niagabusana/api/transaksi.php',
-                              {
-                                id_member: item.id_member,
-                              },
-                            )
-                            .then(res => {
-                              console.log(res.data);
-                              setData(res.data);
-                            });
-                        });
+                          {
+                            text: 'OK',
+                            onPress: () => {
+                              axios
+                                .post(
+                                  'https://zavalabs.com/niagabusana/api/transaksi_hapus.php',
+                                  {
+                                    id_member: item.id_member,
+                                    kode: item.kode,
+                                  },
+                                )
+                                .then(res => {
+                                  axios
+                                    .post(
+                                      'https://zavalabs.com/niagabusana/api/transaksi.php',
+                                      {
+                                        id_member: item.id_member,
+                                      },
+                                    )
+                                    .then(res => {
+                                      console.log(res.data);
+                                      setData(res.data);
+                                    });
+                                });
+                            },
+                          },
+                        ],
+                      );
                     }}
                     style={{
                       padding: 10,

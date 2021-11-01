@@ -91,9 +91,9 @@ export default function GetStarted({navigation}) {
       <MyButton
         title="DAFTAR"
         Icons="book"
-        warna={colors.white}
-        iconColor={colors.primary}
-        colorText={colors.primary}
+        warna={colors.secondary}
+        iconColor={colors.white}
+        colorText={colors.white}
         onPress={() => navigation.navigate('Register')}
       />
 

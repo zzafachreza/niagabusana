@@ -64,13 +64,13 @@ export default function MyProductNew() {
               flex: 1,
               justifyContent: 'flex-start',
               alignItems: 'center',
-              padding: 10,
+              margin: 5,
               flexDirection: 'row',
             }}>
             {item.stok > 0 && (
               <Text
                 style={{
-                  backgroundColor: colors.primary,
+                  backgroundColor: colors.tertiary,
                   borderRadius: 5,
                   color: colors.white,
                   paddingHorizontal: 5,
@@ -225,9 +225,9 @@ export default function MyProductNew() {
                   <Text
                     style={{
                       left: 10,
-                      backgroundColor: colors.primary,
+                      backgroundColor: colors.fourty,
                       borderRadius: 5,
-                      color: colors.white,
+                      color: colors.black,
                       paddingHorizontal: 5,
                     }}>
                     {Math.round(100 - (item.harga / item.harga_awal) * 100)}%
@@ -281,7 +281,7 @@ export default function MyProductNew() {
             <Text
               style={{
                 fontFamily: fonts.secondary[400],
-                color: colors.primary,
+                color: colors.tertiary,
 
                 fontSize: windowWidth / 30,
               }}>
@@ -346,7 +346,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'red',
     fontFamily: fonts.secondary[400],
     fontSize: 14,
-    color: colors.black,
+    color: colors.secondary,
     marginBottom: 5,
   },
 });

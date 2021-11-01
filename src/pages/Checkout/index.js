@@ -160,84 +160,13 @@ export default function Checkout({navigation, route}) {
             }}>
             <View style={{flexDirection: 'row'}}>
               <View style={{flex: 1}}>
-                {user.bayar == 'KREDIT' ? (
+                {user.bayar == 'LANGSUNG DI TOKO' ? (
                   <View>
-                    <TouchableOpacity
-                      onPress={() => {
-                        setCicilan1(true);
-                        setCicilan2(false);
-                        setKirim({...kirim, tenor: 10});
-                        // console.log(
-                        //   '10 bulan',
-                        //   kirim.total + ((30 / 100) * kirim.total) / 10,
-                        // );
-                      }}
-                      style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        padding: 10,
-                        marginVertical: 5,
-                        width: '70%',
-                        borderRadius: 10,
-                        backgroundColor: cicilan1
-                          ? colors.primary
-                          : colors.white,
-                      }}>
-                      <Icon
-                        type="ionicon"
-                        name="card-outline"
-                        color={cicilan1 ? colors.white : colors.black}
-                        // size={windowWidth / 4}
-                      />
-                      <Text
-                        style={{
-                          color: cicilan1 ? colors.white : colors.black,
-                          left: 10,
-                          fontSize: windowWidth / 22,
-                          fontFamily: fonts.secondary[400],
-                        }}>
-                        Cicilan 10 Bulan
-                      </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                      onPress={() => {
-                        setCicilan2(true);
-                        setCicilan1(false);
-                        setKirim({...kirim, tenor: 12});
-
-                        // setKirim({
-                        //   ...kirim,
-                        //   total:
-                        //     kirim.subTotal + ((36 / 100) * kirim.subTotal) / 12,
-                        // });
-                      }}
-                      style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        padding: 10,
-                        marginVertical: 5,
-                        borderRadius: 10,
-                        width: '70%',
-                        backgroundColor: cicilan2
-                          ? colors.primary
-                          : colors.white,
-                      }}>
-                      <Icon
-                        type="ionicon"
-                        name="card-outline"
-                        color={cicilan2 ? colors.white : colors.black}
-                        // size={windowWidth / 4}
-                      />
-                      <Text
-                        style={{
-                          color: cicilan2 ? colors.white : colors.black,
-                          left: 10,
-                          fontSize: windowWidth / 22,
-                          fontFamily: fonts.secondary[400],
-                        }}>
-                        Cicilan 12 Bulan
-                      </Text>
-                    </TouchableOpacity>
+                    <Image
+                      source={require('../../assets/logo.png')}
+                      style={{height: 50, width: 50}}
+                      // resizeMode="center"
+                    />
                   </View>
                 ) : (
                   <Image
@@ -296,33 +225,7 @@ export default function Checkout({navigation, route}) {
             </Text>
           </View>
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItem: 'center',
-            padding: 10,
-          }}>
-          <View style={{flex: 1}}>
-            <Text
-              style={{
-                color: colors.border,
-                fontSize: windowWidth / 20,
-                fontFamily: fonts.secondary[400],
-              }}>
-              Subtotal Pengiriman:
-            </Text>
-          </View>
-          <View>
-            <Text
-              style={{
-                color: colors.black,
-                fontSize: windowWidth / 18,
-                fontFamily: fonts.secondary[600],
-              }}>
-              Rp. {new Intl.NumberFormat().format(kirim.ongkir)}
-            </Text>
-          </View>
-        </View>
+
         <View
           style={{
             flexDirection: 'row',
@@ -346,7 +249,7 @@ export default function Checkout({navigation, route}) {
                 fontSize: windowWidth / 18,
                 fontFamily: fonts.secondary[600],
               }}>
-              Rp. {new Intl.NumberFormat().format(kirim.total + kirim.ongkir)}
+              Rp. {new Intl.NumberFormat().format(kirim.total)}
             </Text>
           </View>
         </View>

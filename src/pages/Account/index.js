@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View, SafeAreaView, Image} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  Image,
+  Linking,
+} from 'react-native';
 import {windowWidth, fonts} from '../../utils/fonts';
 import {getData, storeData} from '../../utils/localStorage';
 import {colors} from '../../utils/colors';
@@ -7,10 +14,20 @@ import {MyButton, MyGap} from '../../components';
 import {Icon} from 'react-native-elements';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useIsFocused} from '@react-navigation/native';
+import axios from 'axios';
 
 export default function Account({navigation, route}) {
   const [user, setUser] = useState({});
+  const [com, setCom] = useState({});
   const isFocused = useIsFocused();
+  const [wa, setWA] = useState('');
+
+  const getWa = () => {
+    axios.get('https://zavalabs.com/niagabusana/api/company.php').then(res => {
+      setCom(res.data);
+      console.log(res);
+    });
+  };
 
   useEffect(() => {
     if (isFocused) {
@@ -18,6 +35,7 @@ export default function Account({navigation, route}) {
         setUser(res);
         // console.log(user);
       });
+      getWa();
     }
   }, [isFocused]);
 
@@ -25,6 +43,14 @@ export default function Account({navigation, route}) {
     storeData('user', null);
 
     navigation.replace('GetStarted');
+  };
+
+  const kirimWa = x => {
+    Linking.openURL(
+      'https://api.whatsapp.com/send?phone=' +
+        x +
+        '&text=Halo%20NIAGA%20BUSANA',
+    );
   };
 
   return (
@@ -72,7 +98,7 @@ export default function Account({navigation, route}) {
             title="Edit Profile"
             colorText={colors.white}
             iconColor={colors.white}
-            warna={colors.primary}
+            warna={colors.secondary}
             Icons="create-outline"
           />
 
@@ -88,7 +114,7 @@ export default function Account({navigation, route}) {
               <Text
                 style={{
                   fontFamily: fonts.secondary[600],
-                  color: colors.primary,
+                  color: colors.black,
                 }}>
                 E-mail
               </Text>
@@ -98,6 +124,28 @@ export default function Account({navigation, route}) {
                   color: colors.primary,
                 }}>
                 {user.email}
+              </Text>
+            </View>
+            <View
+              style={{
+                marginVertical: 5,
+                padding: 10,
+                backgroundColor: colors.white,
+                borderRadius: 10,
+              }}>
+              <Text
+                style={{
+                  fontFamily: fonts.secondary[600],
+                  color: colors.black,
+                }}>
+                Telepon / Whatsapp
+              </Text>
+              <Text
+                style={{
+                  fontFamily: fonts.secondary[400],
+                  color: colors.primary,
+                }}>
+                {user.tlp}
               </Text>
             </View>
             <TouchableOpacity
@@ -113,7 +161,7 @@ export default function Account({navigation, route}) {
                 <Text
                   style={{
                     fontFamily: fonts.secondary[600],
-                    color: colors.primary,
+                    color: colors.black,
                   }}>
                   Alamat
                 </Text>
@@ -142,16 +190,16 @@ export default function Account({navigation, route}) {
                 <Text
                   style={{
                     fontFamily: fonts.secondary[600],
-                    color: colors.primary,
+                    color: colors.black,
                   }}>
-                  Transaksi
+                  Pesanan Saya
                 </Text>
                 <Text
                   style={{
                     fontFamily: fonts.secondary[400],
                     color: colors.primary,
                   }}>
-                  Informasi Transaksi Anda
+                  Informasi Pesanan
                 </Text>
               </View>
               <View>
@@ -166,9 +214,19 @@ export default function Account({navigation, route}) {
           <MyButton
             onPress={btnKeluar}
             title="Keluar"
-            colorText={colors.primary}
-            iconColor={colors.primary}
+            colorText={colors.white}
+            iconColor={colors.white}
+            warna={colors.tertiary}
             Icons="log-out-outline"
+          />
+          <MyGap jarak={10} />
+          <MyButton
+            onPress={() => kirimWa(com.tlp)}
+            title="Hubungi Admin NIAGA BUSANA"
+            colorText={colors.black}
+            iconColor={colors.black}
+            warna={colors.secondary}
+            Icons="logo-whatsapp"
           />
         </View>
       </View>

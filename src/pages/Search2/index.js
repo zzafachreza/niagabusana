@@ -130,13 +130,13 @@ export default function Search2({navigation, route}) {
               flex: 1,
               justifyContent: 'flex-start',
               alignItems: 'center',
-              padding: 10,
+              margin: 5,
               flexDirection: 'row',
             }}>
             {item.stok > 0 && (
               <Text
                 style={{
-                  backgroundColor: colors.primary,
+                  backgroundColor: colors.tertiary,
                   borderRadius: 5,
                   color: colors.white,
                   paddingHorizontal: 5,
@@ -147,7 +147,7 @@ export default function Search2({navigation, route}) {
             {item.stok == 0 && (
               <Text
                 style={{
-                  backgroundColor: colors.primary,
+                  backgroundColor: colors.border,
                   borderRadius: 5,
                   color: colors.white,
                   paddingHorizontal: 5,
@@ -244,15 +244,10 @@ export default function Search2({navigation, route}) {
           <Text
             style={{
               fontFamily: fonts.secondary[600],
-              fontSize: windowWidth / 28,
+              fontSize: windowWidth / 35,
               flex: 1,
-              // backgroundColor: colors.primary,
               paddingHorizontal: 5,
-
-              // borderBottomLeftRadius: 20,
-              // borderTopRightRadius: 20,
               color: colors.black,
-              // textAlign: 'center',
             }}>
             {item.nama_barang}
           </Text>
@@ -265,7 +260,7 @@ export default function Search2({navigation, route}) {
             <Text
               style={{
                 fontFamily: fonts.secondary[600],
-                fontSize: windowWidth / 25,
+                fontSize: windowWidth / 30,
                 color: colors.primary,
               }}>
               {' '}
@@ -278,7 +273,7 @@ export default function Search2({navigation, route}) {
                   <Text
                     style={{
                       fontFamily: fonts.secondary[600],
-                      fontSize: windowWidth / 30,
+                      fontSize: windowWidth / 35,
                       color: colors.border,
                       left: 5,
                       textDecorationLine: 'line-through',
@@ -291,9 +286,9 @@ export default function Search2({navigation, route}) {
                   <Text
                     style={{
                       left: 10,
-                      backgroundColor: colors.primary,
+                      backgroundColor: colors.fourty,
                       borderRadius: 5,
-                      color: colors.white,
+                      color: colors.black,
                       paddingHorizontal: 5,
                     }}>
                     {Math.round(100 - (item.harga / item.harga_awal) * 100)}%
@@ -380,7 +375,7 @@ export default function Search2({navigation, route}) {
           backgroundColor: colors.white,
         }}>
         <FlatList
-          numColumns={2}
+          numColumns={3}
           data={data}
           renderItem={renderItem}
           keyExtractor={item => item.id}
@@ -501,7 +496,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   card: {
-    flex: 0.5,
+    flex: 0.3,
 
     borderRadius: 15,
     overflow: 'hidden',
@@ -534,7 +529,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
     fontFamily: fonts.secondary[400],
     fontSize: 14,
-    color: '#000',
+    color: colors.secondary,
     marginBottom: 5,
   },
 });

@@ -7,6 +7,7 @@ import {
   FlatList,
   TouchableWithoutFeedback,
   Image,
+  Alert,
 } from 'react-native';
 
 import {getData, storeData} from '../../utils/localStorage';
@@ -25,7 +26,6 @@ export default function Cart({navigation, route}) {
   const [user, setUser] = useState({});
   const [data, setData] = useState([]);
   const isFocused = useIsFocused();
-  const [cart, setCart] = useState(0);
   //   useEffect(() => {
 
   //   }, []);
@@ -38,11 +38,6 @@ export default function Cart({navigation, route}) {
         setUser(res);
         __getDataBarang(res.id);
       });
-
-      getData('cart').then(res => {
-        console.log(res);
-        setCart(res);
-      });
     }
   }, [isFocused]);
 
@@ -52,25 +47,63 @@ export default function Cart({navigation, route}) {
         id_member: id_member,
       })
       .then(res => {
-        console.log('data barang,', res.data);
-        setData(res.data);
+        if (res.data.length == 0) {
+          console.log('data barang,', res.data);
+          setData(res.data);
+          storeData('cart', false);
+        } else {
+          console.log('data barang,', res.data);
+          setData(res.data);
+        }
       });
   };
 
   const hanldeHapus = (id, id_member) => {
     console.log(id + id_member);
+
+    Alert.alert('Niaga Busana', 'Apakah Anda yakin akan hapus ini ?', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {
+        text: 'OK',
+        onPress: () => {
+          axios
+            .post('https://zavalabs.com/niagabusana/api/cart_hapus.php', {
+              id: id,
+              id_member: id_member,
+            })
+            .then(res => {
+              console.log('delete', res);
+              __getDataBarang(id_member);
+            });
+        },
+      },
+    ]);
+  };
+
+  const tambah = (id, id_member) => {
     axios
-      .post('https://zavalabs.com/niagabusana/api/cart_hapus.php', {
+      .post('https://zavalabs.com/niagabusana/api/cart_add.php', {
         id: id,
         id_member: id_member,
       })
       .then(res => {
-        console.log('delete', res);
         __getDataBarang(id_member);
       });
+  };
 
-    setCart(cart - 1);
-    storeData('cart', cart - 1);
+  const kurang = (id, id_member) => {
+    axios
+      .post('https://zavalabs.com/niagabusana/api/cart_min.php', {
+        id: id,
+        id_member: id_member,
+      })
+      .then(res => {
+        __getDataBarang(id_member);
+      });
   };
 
   var sub = 0;
@@ -82,84 +115,120 @@ export default function Cart({navigation, route}) {
 
   const __renderItem = ({item}) => {
     return (
-      <Swipeable
-        renderRightActions={() => {
-          return (
+      <View
+        style={{
+          marginVertical: 10,
+          borderRadius: 10,
+          backgroundColor: colors.white,
+          elevation: 1,
+          padding: 5,
+        }}>
+        <View style={{flexDirection: 'row'}}>
+          <Image
+            style={{
+              borderRadius: 10,
+              width: windowWidth / 4,
+            }}
+            source={{uri: item.foto}}
+          />
+          <View style={{marginLeft: 10, flex: 1}}>
+            <Text style={{fontFamily: fonts.secondary[600]}}>
+              {item.nama_barang}
+            </Text>
+
+            <Text style={{fontFamily: fonts.secondary[600], flex: 1}}>
+              Harga : {new Intl.NumberFormat().format(item.harga)}
+            </Text>
+
+            <View
+              style={{
+                flexDirection: 'row',
+              }}>
+              <TouchableOpacity
+                onPress={() => {
+                  if (item.qty == 1) {
+                    hanldeHapus(item.id, item.id_member);
+                  } else {
+                    kurang(item.id, item.id_member);
+                  }
+                }}
+                style={{
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  padding: 5,
+                  elevation: 2,
+                  backgroundColor: colors.secondary,
+                  borderRadius: 10,
+                }}>
+                <Text>
+                  <Icon
+                    type="ionicon"
+                    name="remove"
+                    size={20}
+                    color={colors.black}
+                  />
+                </Text>
+              </TouchableOpacity>
+              <View
+                style={{
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  paddingHorizontal: 10,
+                }}>
+                <Text>{item.qty}</Text>
+              </View>
+              <TouchableOpacity
+                onPress={() => tambah(item.id, item.id_member)}
+                style={{
+                  justifyContent: 'center',
+                  elevation: 2,
+                  alignItems: 'center',
+                  padding: 5,
+                  backgroundColor: colors.secondary,
+                  borderRadius: 10,
+                }}>
+                <Text>
+                  <Icon
+                    type="ionicon"
+                    name="add"
+                    size={20}
+                    color={colors.black}
+                  />
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View>
             <TouchableWithoutFeedback
               onPress={() => hanldeHapus(item.id, item.id_member)}>
               <View
                 style={{
-                  // flex: 1,
-                  width: 100,
-                  //   backgroundColor: 'blue',
-                  // padding: 20,
-                  justifyContent: 'center',
-                  alignItems: 'center',
+                  flex: 1,
+                  justifyContent: 'flex-start',
+                  alignItems: 'flex-end',
                 }}>
                 <Icon
                   type="ionicon"
                   name="trash"
-                  size={40}
-                  color={colors.danger}
+                  size={18}
+                  color={colors.black}
                 />
               </View>
             </TouchableWithoutFeedback>
-          );
-        }}>
-        <View
-          style={{
-            marginVertical: 10,
-            borderRadius: 10,
-            padding: 10,
-
-            backgroundColor: colors.white,
-          }}>
-          <View style={{flexDirection: 'row'}}>
-            <Image
-              resizeMode="contain"
+            <Text
               style={{
-                width: 70,
-                borderRadius: 20,
-                aspectRatio: 1,
-              }}
-              source={{uri: item.foto}}
-            />
-            <View style={{marginLeft: 10, flex: 1}}>
-              <Text
-                style={{
-                  fontFamily: fonts.secondary[600],
-                  fontSize: windowWidth / 30,
-                }}>
-                {item.nama_barang}
-              </Text>
-
-              <Text
-                style={{
-                  fontFamily: fonts.secondary[400],
-                  flex: 1,
-                  fontSize: windowWidth / 30,
-                  color: colors.primary,
-                }}>
-                {new Intl.NumberFormat().format(item.harga)} x {item.qty}
-              </Text>
-              <View
-                style={{
-                  justifyContent: 'flex-end',
-                  alignItems: 'flex-end',
-                }}>
-                <Text
-                  style={{
-                    fontFamily: fonts.secondary[600],
-                    color: colors.primary,
-                    fontSize: windowWidth / 25,
-                  }}>
-                  {new Intl.NumberFormat().format(item.total)}
-                </Text>
-              </View>
-            </View>
+                fontFamily: fonts.secondary[600],
+                color: colors.primary,
+                margin: 5,
+                fontSize: windowWidth / 23,
+              }}>
+              {new Intl.NumberFormat().format(item.total)}
+            </Text>
           </View>
         </View>
-      </Swipeable>
+
+        <View style={{flexDirection: 'row'}}></View>
+      </View>
     );
   };
 
@@ -172,55 +241,59 @@ export default function Cart({navigation, route}) {
       <View style={{padding: 10, flex: 1}}>
         <FlatList data={data} renderItem={__renderItem} />
       </View>
+
       <View
         style={{
+          borderTopWidth: 1,
+          borderTopColor: '#E6E6E6',
           flexDirection: 'row',
-          justifyContent: 'space-between',
+          justifyContent: 'center',
+          padding: 10,
         }}>
-        <View
+        <Text
           style={{
             flex: 1,
-            backgroundColor: colors.white,
-            justifyContent: 'center',
-            alignItems: 'flex-start',
+            fontSize: windowWidth / 25,
+            fontFamily: fonts.secondary[600],
+            color: colors.black,
           }}>
-          <Text
-            style={{
-              fontSize: windowWidth / 20,
-              fontFamily: fonts.secondary[600],
-              color: colors.black,
-              left: 10,
-            }}>
-            Rp. {new Intl.NumberFormat().format(sub)}
-          </Text>
-        </View>
-        <TouchableOpacity
-          onPress={() =>
-            navigation.navigate('Checkout', {
-              total: sub,
-              id_member: user.id,
-              nama_lengkap: user.nama_lengkap,
-              nohp: user.tlp,
-              email: user.email,
-              alamat: user.alamat,
-            })
-          }
+          TOTAL
+        </Text>
+        <Text
           style={{
-            backgroundColor: colors.white,
-            padding: 30,
-            justifyContent: 'center',
-            alignItems: 'center',
+            fontSize: windowWidth / 15,
+            fontFamily: fonts.secondary[600],
+            color: colors.black,
           }}>
-          <Text
-            style={{
-              fontSize: windowWidth / 18,
-              fontFamily: fonts.secondary[600],
-              color: colors.primary,
-            }}>
-            CHECKOUT
-          </Text>
-        </TouchableOpacity>
+          Rp. {new Intl.NumberFormat().format(sub)}
+        </Text>
       </View>
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate('Checkout', {
+            total: sub,
+            id_member: user.id,
+            nama_lengkap: user.nama_lengkap,
+            nohp: user.tlp,
+            email: user.email,
+            alamat: user.alamat,
+          })
+        }
+        style={{
+          padding: 20,
+          backgroundColor: colors.primary,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <Text
+          style={{
+            fontSize: windowWidth / 20,
+            fontFamily: fonts.secondary[600],
+            color: colors.white,
+          }}>
+          CHECKOUT
+        </Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }

@@ -47,7 +47,7 @@ export default function Success({navigation, route}) {
           style={{
             fontFamily: fonts.secondary[400],
             fontSize: windowWidth / 22,
-            color: colors.primary,
+            color: colors.tertiary,
             bottom: txt,
           }}>
           {messege}
@@ -60,7 +60,7 @@ export default function Success({navigation, route}) {
         }}>
         <MyButton
           title="MASUK SEKARANG"
-          warna={colors.primary}
+          warna={colors.secondary}
           onPress={() => navigation.replace('Login')}
         />
       </View>

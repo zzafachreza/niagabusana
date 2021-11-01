@@ -130,7 +130,7 @@ export default function Home({navigation}) {
             <Text
               style={{
                 fontSize: windowWidth / 25,
-                color: colors.primary,
+                color: colors.tertiary,
                 fontFamily: fonts.secondary[400],
               }}>
               Selamat datang,
@@ -160,7 +160,7 @@ export default function Home({navigation}) {
               <Icon
                 type="ionicon"
                 name="cart-outline"
-                color={colors.primary}
+                color={colors.secondary}
                 size={windowWidth / 12}
               />
               {cart > 0 && (

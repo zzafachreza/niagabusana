@@ -36,9 +36,11 @@ import Metode from './Metode';
 import Kredit from './Kredit';
 import Tenor from './Tenor';
 import KategoriAll from './KategoriAll';
+import Lupa from './Lupa';
 
 export {
   Wishlist,
+  Lupa,
   Kredit,
   Splash,
   GetStarted,

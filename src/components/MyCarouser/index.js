@@ -71,15 +71,15 @@ export default function MyCarouser() {
         <Text
           style={{
             flex: 1,
-            fontFamily: fonts.secondary[800],
-            color: colors.primary,
+            fontFamily: fonts.secondary[600],
+            color: colors.black,
             left: 10,
-            fontSize: windowWidth / 18,
+            fontSize: windowWidth / 22,
           }}>
           NIAGA BUSANA
         </Text>
         <TouchableOpacity onPress={() => navigation.navigate('Search')}>
-          <Icon type="ionicon" name="search" color={colors.primary} />
+          <Icon type="ionicon" name="search" color={colors.secondary} />
         </TouchableOpacity>
       </View>
       <Carousel
